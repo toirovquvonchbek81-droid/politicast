@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PolitiCast — Bilim sari yo'l</title>
+<meta name="description" content="Institut talabalari uchun kitobxonlik va ta'lim platformasi.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html">Politi<b>Cast</b></a>
+  <a class="btn sm" href="login.html">Kirish</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <h1>PolitiCast</h1>
+  <p class="motto">BILIM SARI YO'L</p>
+  <p class="lead">Har oy bitta kitob. Siz o'qiysiz, xulosa yozasiz, natijangiz reytingda o'z o'rnini topadi.</p>
+  <div class="actions">
+    <a class="btn" href="login.html">Google bilan kirish</a>
+    <a class="btn ghost" href="#qanday">Qanday ishlaydi</a>
+  </div>
+  <blockquote class="quote" id="quote" aria-live="polite"></blockquote>
+</div></section>
+
+<section class="section" id="qanday"><div class="wrap">
+  <h2>Qanday ishlaydi</h2>
+  <ol class="flow">
+    <li><b>Kitob tanlanadi.</b> Administrator oylik kitob va muddatni belgilaydi.</li>
+    <li><b>Siz o'qiysiz.</b> Muddat ichida kitobni o'qib chiqasiz.</li>
+    <li><b>Xulosa yozasiz.</b> Kitob mazmuni haqida o'z fikringizni yuborasiz.</li>
+    <li><b>Tekshiruv.</b> Administrator xulosani tasdiqlaydi yoki izoh bilan qaytaradi.</li>
+    <li><b>Ball va reyting.</b> Faqat tasdiqlangan xulosalar ball beradi.</li>
+  </ol>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <h2>Nima uchun PolitiCast</h2>
+  <div class="grid">
+    <div class="card"><h3>Intizom</h3><p>Muddatlar va o'qish kalendari sizni muntazam o'qishga undaydi.</p></div>
+    <div class="card"><h3>Adolatli reyting</h3><p>Ball faqat administrator tasdiqlagan natijalar uchun beriladi.</p></div>
+    <div class="card"><h3>Maxfiylik</h3><p>Faqat ism va familiya so'raladi. Natijalaringizni boshqa talaba ko'rmaydi.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="yil"></span> PolitiCast. Bilim sari yo'l.</div></footer>
+
+<script>
+const Q=["Bugun o'qilgan bir bet ertangi kunni o'zgartiradi.","Kitob — eng sodiq ustoz: shoshirmaydi, lekin hech qachon tark etmaydi.","Fikrlay olgan odam erkin odamdir.","Katta natijalar kichik, lekin muntazam odatlardan boshlanadi.","O'qigan odam dunyoni kengroq ko'radi."];
+const el=document.getElementById("quote");let i=0;el.textContent=Q[0];
+setInterval(()=>{el.classList.add("fade");setTimeout(()=>{i=(i+1)%Q.length;el.textContent=Q[i];el.classList.remove("fade")},450)},6000);
+document.getElementById("yil").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

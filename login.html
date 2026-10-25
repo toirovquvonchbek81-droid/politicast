@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kirish — PolitiCast</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html">Politi<b>Cast</b></a>
+  <a class="btn ghost sm" href="index.html">Bosh sahifa</a>
+</div></header>
+
+<main class="auth"><div class="panel">
+
+  <div id="s-load"><p class="sub">Yuklanmoqda...</p></div>
+
+  <div id="s-login" hidden>
+    <h1>Kirish</h1>
+    <p class="sub">Davom etish uchun Google akkauntingizdan foydalaning.</p>
+    <button class="btn white" id="btn-google" type="button">Google bilan kirish</button>
+  </div>
+
+  <form id="s-profile" hidden>
+    <h1>Profilni to'ldiring</h1>
+    <p class="sub">Faqat ism va familiya kerak. Tekshirib, kerak bo'lsa tuzating.</p>
+    <label for="fn">Ism</label>
+    <input id="fn" autocomplete="given-name" maxlength="40" required>
+    <label for="ln">Familiya</label>
+    <input id="ln" autocomplete="family-name" maxlength="40" required>
+    <div class="row"><button class="btn" id="btn-save" type="submit">Saqlash</button></div>
+  </form>
+
+  <div id="s-done" hidden>
+    <h1 id="hello">Xush kelibsiz</h1>
+    <p class="sub" id="mail"></p>
+    <p class="sub">Shaxsiy kabinet keyingi bosqichda qo'shiladi. Hozircha kirish tizimi ishlayotganini tekshirdingiz.</p>
+    <label>Sizning UID raqamingiz (asosiy administrator yaratish uchun kerak)</label>
+    <code class="uid" id="uid"></code>
+    <div class="row">
+      <button class="btn ghost" id="btn-copy" type="button">UID nusxalash</button>
+      <button class="btn ghost" id="btn-out" type="button">Chiqish</button>
+    </div>
+  </div>
+
+  <div class="msg" id="msg" hidden></div>
+</div></main>
+
+<script type="module" src="auth.js"></script>
+</body>
+</html>

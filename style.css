@@ -1,0 +1,50 @@
+:root{--bg:#061126;--bg2:#0B1730;--gold:#D6AD55;--text:#F5F7FB;--muted:#AAB5C8;--ok:#3fb27f;--warn:#e6b84d;--err:#e5534b;--line:rgba(214,173,85,.25)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;overflow-x:hidden}
+h1,h2,h3,.brand{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+.nav{position:sticky;top:0;z-index:10;background:rgba(6,17,38,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-size:1.45rem;font-weight:700;color:var(--text);text-decoration:none}
+.brand b{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:12px;border:1px solid var(--gold);background:var(--gold);color:#061126;font:600 1rem system-ui,sans-serif;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(214,173,85,.25)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn.sm{min-height:40px;padding:0 16px}
+.btn[disabled]{opacity:.6;cursor:wait;transform:none}
+.btn.white{background:#fff;border-color:#fff;color:#1f2937}
+.hero{padding:80px 0 64px;text-align:center;background:radial-gradient(ellipse at 50% -10%,rgba(214,173,85,.18),transparent 62%),repeating-linear-gradient(90deg,transparent 0 58px,rgba(214,173,85,.045) 58px 60px)}
+.hero h1{font-size:clamp(2.6rem,11vw,5rem);letter-spacing:-.02em}
+.motto{margin-top:10px;color:var(--gold);font-family:Georgia,serif;font-size:clamp(1rem,4vw,1.35rem);letter-spacing:.14em}
+.lead{color:var(--muted);max-width:540px;margin:20px auto 30px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.quote{margin:48px auto 0;max-width:600px;min-height:104px;padding:22px 24px;border-left:3px solid var(--gold);background:var(--bg2);border-radius:0 14px 14px 0;font:italic 1.15rem/1.6 Georgia,serif;text-align:left;transition:opacity .45s}
+.quote.fade{opacity:0}
+.section{padding:56px 0}
+.section h2{font-size:1.7rem;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:1.15rem;margin-bottom:8px;color:var(--gold)}
+.card p{color:var(--muted);font-size:.97rem}
+.flow{display:grid;gap:0;max-width:640px}
+.flow li{list-style:none;padding:14px 0 14px 18px;border-left:2px solid var(--line);color:var(--muted)}
+.flow li b{color:var(--text)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
+.auth{min-height:calc(100vh - 64px);display:grid;place-items:center;padding:24px 0}
+.panel{width:min(440px,100% - 32px);background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:30px 26px}
+.panel h1{font-size:1.7rem;margin-bottom:8px}
+.panel p.sub{color:var(--muted);margin-bottom:22px}
+.panel .btn{width:100%}
+label{display:block;margin:14px 0 6px;color:var(--muted);font-size:.92rem}
+input{width:100%;min-height:48px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:1rem system-ui,sans-serif}
+.msg{margin-top:16px;padding:12px 14px;border-radius:10px;font-size:.95rem;border:1px solid}
+.msg.err{color:#ffb4ae;border-color:var(--err);background:rgba(229,83,75,.1)}
+.msg.ok{color:#9fe3c3;border-color:var(--ok);background:rgba(63,178,127,.1)}
+.msg.info{color:var(--muted);border-color:var(--line)}
+.uid{display:block;margin:6px 0 12px;padding:12px;border-radius:10px;background:var(--bg);border:1px dashed var(--gold);word-break:break-all;font:.9rem ui-monospace,monospace;color:var(--gold)}
+.row{display:flex;gap:10px;margin-top:18px}
+.row .btn{flex:1}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
