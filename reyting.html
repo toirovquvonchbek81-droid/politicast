@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reyting — PolitiCast</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="app.css">
+<style>
+select{width:100%;min-height:48px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:1rem system-ui,sans-serif}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+@media(max-width:480px){.filters{grid-template-columns:1fr}}
+.rows{display:grid;gap:8px;max-width:760px}
+.r{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.r.me{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+.pos{font:700 1.3rem Georgia,serif;color:var(--gold);text-align:center}
+.nm{font-weight:600;overflow-wrap:anywhere}
+.sub{color:var(--muted);font-size:.85rem}
+.pt{font:700 1.2rem Georgia,serif;text-align:right}
+.pt small{display:block;color:var(--muted);font:.75rem system-ui}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="app.html">Politi<b>Cast</b></a>
+  <div class="navr">
+    <a class="btn ghost sm" href="app.html">Kabinet</a>
+    <button class="btn ghost sm" id="out" type="button">Chiqish</button>
+  </div>
+</div></header>
+<main class="wrap sec">
+  <p id="load" class="muted">Yuklanmoqda...</p>
+  <div id="main" hidden>
+    <h1>Kitobxonlar reytingi</h1>
+    <p class="muted">Faqat administrator tasdiqlagan xulosalar hisobga olinadi.</p>
+    <p id="mine" class="msg ok" hidden></p>
+    <div class="filters">
+      <select id="per" aria-label="Davr"></select>
+      <input id="q" type="search" placeholder="Ism bo'yicha qidirish" aria-label="Qidirish">
+    </div>
+    <div class="msg err" id="msg" hidden></div>
+    <div id="rows" class="rows"></div>
+    <p id="empty" class="empty" hidden>Bu davr uchun natija yo'q.</p>
+  </div>
+</main>
+<script type="module" src="reyting.js"></script>
+</body>
+</html>
