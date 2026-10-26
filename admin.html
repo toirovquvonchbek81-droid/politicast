@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Admin — PolitiCast</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="admin.html">Politi<b>Cast</b> <small style="color:var(--gold);font-size:.7rem">ADMIN</small></a>
+  <div class="navr">
+    <a class="btn ghost sm" href="app.html">Kabinet</a>
+    <button class="btn ghost sm" id="out" type="button">Chiqish</button>
+  </div>
+</div></header>
+<main class="wrap sec">
+  <p id="load" class="muted">Tekshirilmoqda...</p>
+  <div id="denied" class="empty" hidden>Bu sahifa faqat administratorlar uchun. <a href="app.html">Kabinetga qaytish</a></div>
+  <div id="main" hidden>
+    <h1>Kitoblarni boshqarish</h1>
+    <p class="muted" id="who"></p>
+    <h2>Yangi kitob qo'shish</h2>
+    <form class="form" id="f">
+      <label for="t">Kitob nomi</label><input id="t" maxlength="150" required>
+      <label for="a">Muallif</label><input id="a" maxlength="100" required>
+      <label for="d">Qisqacha tavsif</label><textarea id="d" maxlength="1000"></textarea>
+      <label for="c">Muqova rasmi manzili (https:// bilan, ixtiyoriy)</label><input id="c" type="url" inputmode="url" placeholder="https://...">
+      <button class="btn" id="save" type="submit">Kitobni qo'shish</button>
+    </form>
+    <div class="msg" id="msg" hidden></div>
+    <h2>Barcha kitoblar</h2>
+    <div id="books" class="books"></div>
+    <p id="empty" class="empty" hidden>Hali kitob yo'q. Yuqoridagi shakl orqali birinchi kitobni qo'shing.</p>
+  </div>
+</main>
+<script type="module" src="admin.js"></script>
+</body>
+</html>

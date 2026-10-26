@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kabinet — PolitiCast</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="app.html">Politi<b>Cast</b></a>
+  <div class="navr">
+    <a class="btn ghost sm" id="adm" href="admin.html" hidden>Admin</a>
+    <button class="btn ghost sm" id="out" type="button">Chiqish</button>
+  </div>
+</div></header>
+<main class="wrap sec">
+  <p id="load" class="muted">Yuklanmoqda...</p>
+  <div id="main" hidden>
+    <h1 id="hi"></h1>
+    <p class="muted">Bu yerda o'qish uchun mavjud kitoblar ko'rinadi.</p>
+    <div class="msg err" id="msg" hidden></div>
+    <h2>Kitoblar</h2>
+    <div id="books" class="books"></div>
+    <p id="empty" class="empty" hidden>Hozircha kitob qo'shilmagan. Administrator kitob qo'shgach, shu yerda ko'rinadi.</p>
+  </div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
