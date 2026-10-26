@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Topshiriqlar (admin) — PolitiCast</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="app.css">
+<style>select{width:100%;min-height:48px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:1rem system-ui,sans-serif}</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="admin-tasks.html">Politi<b>Cast</b> <small style="color:var(--gold);font-size:.7rem">ADMIN</small></a>
+  <div class="navr">
+    <a class="btn ghost sm" href="admin.html">Kitoblar</a>
+    <button class="btn ghost sm" id="out" type="button">Chiqish</button>
+  </div>
+</div></header>
+<main class="wrap sec">
+  <p id="load" class="muted">Tekshirilmoqda...</p>
+  <div id="denied" class="empty" hidden>Bu sahifa faqat topshiriqlarni boshqarish huquqi bor administratorlar uchun. <a href="app.html">Kabinetga qaytish</a></div>
+  <div id="main" hidden>
+    <h1>Topshiriqlarni boshqarish</h1>
+    <h2>Yangi topshiriq</h2>
+    <form class="form" id="f">
+      <label for="b">Kitob</label><select id="b" required></select>
+      <label for="t">Topshiriq nomi</label><input id="t" maxlength="150" required placeholder="Masalan: Noyabr oyi kitobi">
+      <label for="d">Tavsif</label><textarea id="d" maxlength="1000"></textarea>
+      <label for="s">Boshlanish sanasi</label><input id="s" type="date" required>
+      <label for="e">Tugash sanasi (shu kun oxirigacha)</label><input id="e" type="date" required>
+      <label for="p">Ball (tasdiqlangan xulosa uchun)</label><input id="p" type="number" min="1" max="1000" value="10" required>
+      <button class="btn" id="save" type="submit">Topshiriqni yaratish</button>
+    </form>
+    <div class="msg" id="msg" hidden></div>
+    <h2>Barcha topshiriqlar</h2>
+    <div id="list" class="books"></div>
+    <p id="empty" class="empty" hidden>Hali topshiriq yo'q.</p>
+  </div>
+</main>
+<script type="module" src="admin-tasks.js"></script>
+</body>
+</html>
