@@ -11,3 +11,6 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
+
+// Yagona menyuni yuklash
+import("./nav.js").catch((e) => console.warn("Menyu yuklanmadi", e));
