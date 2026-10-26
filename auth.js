@@ -1,5 +1,5 @@
 import { app } from "./firebase-config.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut }
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged }
   from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc, updateDoc, serverTimestamp }
   from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
@@ -19,12 +19,13 @@ const ERRORS = {
   "auth/popup-closed-by-user": "Google oynasi yopildi. Qaytadan urinib ko'ring.",
   "auth/cancelled-popup-request": "Kirish bekor qilindi. Qaytadan urinib ko'ring.",
   "auth/popup-blocked": "Brauzer oynani blokladi. Qalqib chiquvchi oynalarga ruxsat bering va qayta urining.",
-  "auth/unauthorized-domain": "Bu sayt manzili Firebase'da ruxsat etilmagan. Authentication → Settings → Authorized domains ga qo'shing.",
+  "auth/unauthorized-domain": "Bu sayt manzili Firebase'da ruxsat etilmagan.",
   "auth/operation-not-allowed": "Firebase'da Google bilan kirish yoqilmagan.",
   "auth/network-request-failed": "Internet aloqasi yo'q yoki uzilgan.",
-  "permission-denied": "Ma'lumotni saqlashga ruxsat yo'q. Firestore qoidalari to'g'ri joylanganini tekshiring."
+  "permission-denied": "Ma'lumotni saqlashga ruxsat yo'q. Firestore qoidalarini tekshiring."
 };
 const errText = (e) => ERRORS[e.code] || "Xatolik yuz berdi: " + (e.code || e.message);
+const goCabinet = () => location.replace("app.html");
 
 let currentUser = null;
 let profileExists = false;
@@ -38,7 +39,7 @@ async function route(user) {
     const snap = await getDoc(doc(db, "users", user.uid));
     profileExists = snap.exists();
     const d = snap.exists() ? snap.data() : {};
-    if (d.firstName && d.lastName) { showDone(user, d); return; }
+    if (d.firstName && d.lastName) { goCabinet(); return; }
     const parts = (user.displayName || "").trim().split(/\s+/);
     $("fn").value = d.firstName || parts[0] || "";
     $("ln").value = d.lastName || parts.slice(1).join(" ") || "";
@@ -47,13 +48,6 @@ async function route(user) {
     show("s-login");
     msg(errText(e), "err");
   }
-}
-
-function showDone(user, d) {
-  $("hello").textContent = "Xush kelibsiz, " + d.firstName + "!";
-  $("mail").textContent = user.email || "";
-  $("uid").textContent = user.uid;
-  show("s-done");
 }
 
 $("btn-google").addEventListener("click", async () => {
@@ -83,17 +77,11 @@ $("s-profile").addEventListener("submit", async (ev) => {
     } else {
       await setDoc(ref, { ...base, email: currentUser.email || "", photoURL: currentUser.photoURL || "", createdAt: serverTimestamp() });
     }
-    showDone(currentUser, base);
+    goCabinet();
   } catch (e) {
     msg(errText(e), "err");
+    b.disabled = false;
   }
-  b.disabled = false;
 });
-
-$("btn-copy").addEventListener("click", async () => {
-  try { await navigator.clipboard.writeText($("uid").textContent); msg("UID nusxalandi.", "ok"); }
-  catch { msg("Nusxalab bo'lmadi. UID ni qo'lda belgilab nusxalang.", "err"); }
-});
-$("btn-out").addEventListener("click", () => signOut(auth));
 
 onAuthStateChanged(auth, route);
