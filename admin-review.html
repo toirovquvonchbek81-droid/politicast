@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Xulosalarni tekshirish — PolitiCast</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="admin-review.html">Politi<b>Cast</b> <small style="color:var(--gold);font-size:.7rem">ADMIN</small></a>
+  <div class="navr">
+    <a class="btn ghost sm" href="admin.html">Kitoblar</a>
+    <button class="btn ghost sm" id="out" type="button">Chiqish</button>
+  </div>
+</div></header>
+<main class="wrap sec">
+  <p id="load" class="muted">Tekshirilmoqda...</p>
+  <div id="denied" class="empty" hidden>Bu sahifa faqat xulosalarni tekshirish huquqi bor administratorlar uchun. <a href="app.html">Kabinetga qaytish</a></div>
+  <div id="main" hidden>
+    <h1>Xulosalarni tekshirish</h1>
+    <div class="navr" id="tabs" style="margin:16px 0;flex-wrap:wrap"></div>
+    <div class="msg" id="msg" hidden></div>
+    <div id="list" style="display:grid;gap:16px;max-width:760px"></div>
+    <p id="empty" class="empty" hidden>Bu bo'limda xulosa yo'q.</p>
+  </div>
+</main>
+<script type="module" src="admin-review.js"></script>
+</body>
+</html>
