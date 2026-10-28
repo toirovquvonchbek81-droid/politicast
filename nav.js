@@ -48,4 +48,6 @@ function build() {
     try { const a = await getDoc(doc(getFirestore(getApp()), "admins", u.uid)); if (a.exists()) fill(STU, true, true); } catch (e) { /* admin emas */ }
   });
 }
-if (document.body) build(); else document.addEventListener("DOMContentLoaded", build);
+if (document.body) build(); else document.
+
+ 
